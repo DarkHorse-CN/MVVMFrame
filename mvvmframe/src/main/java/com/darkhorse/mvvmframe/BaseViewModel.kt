@@ -2,6 +2,7 @@ package com.darkhorse.mvvmframe
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.databinding.Observable
 
 /**
  * Description:

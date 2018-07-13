@@ -42,3 +42,5 @@ dependencies {
 
     kapt "com.android.databinding:compiler:$gradleVersion"
 }
+
+apply plugin: 'kotlin-android-extensions'
