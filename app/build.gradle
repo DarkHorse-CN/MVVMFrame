@@ -38,6 +38,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.android.support:design:$supportLibraryVersion"
     implementation project(':mvvmframe')
 
     kapt "com.android.databinding:compiler:$gradleVersion"
