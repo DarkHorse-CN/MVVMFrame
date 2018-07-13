@@ -35,7 +35,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
-    api 'com.github.DarkHorse-CN:BaseFrame:1.2.5'
+    api 'com.github.DarkHorse-CN:BaseFrame:+'
     //lifecycle扩展依赖
     api "android.arch.lifecycle:extensions:$lifecycleVersion"
     api "android.arch.lifecycle:viewmodel:$lifecycleVersion"
