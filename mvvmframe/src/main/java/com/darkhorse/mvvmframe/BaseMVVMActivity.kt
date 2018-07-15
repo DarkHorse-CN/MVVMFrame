@@ -15,7 +15,7 @@ import com.darkhorse.baseframe.BaseActivity
  * Description:
  * Created by DarkHorse on 2018/7/12.
  */
-abstract class BaseMVVMActivity<E, M : BaseModel, VM : BaseViewModel<E, M>, B : ViewDataBinding> : BaseActivity() {
+abstract class BaseMVVMActivity<E, M : BaseModel, out VM : BaseViewModel<E, M>, B : ViewDataBinding> : BaseActivity() {
 
     protected val mViewModel by lazy {
         ViewModelProviders.of(this).get(createViewModel()::class.java)
