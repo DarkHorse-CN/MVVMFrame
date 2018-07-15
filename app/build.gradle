@@ -40,7 +40,3 @@ dependencies {
     kapt "com.android.databinding:compiler:$gradleVersion"
     implementation project(':mvvmframe')
 }
-
-kapt {
-    generateStubs = true
-}
