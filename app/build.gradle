@@ -41,3 +41,6 @@ dependencies {
     implementation project(':mvvmframe')
 }
 
+kapt {
+    generateStubs = true
+}
