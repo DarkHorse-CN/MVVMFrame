@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".OrderHomeActivity" />
         <activity android:name=".ui.OrderHomeActivity" />
+        <activity android:name=".ui.OrderActivity" />
+        <activity android:name=".ui.OrderHome2Activity" />
     </application>
 
 </manifest>

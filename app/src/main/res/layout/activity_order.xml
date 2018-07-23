@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="OrderActivityBinding">
+        <variable
+            name="data"
+            type="com.darkhorse.mvvmframe.mvvm.data.OrderData" />
+
+        <variable
+            name="activity"
+            type="com.darkhorse.mvvmframe.ui.OrderActivity" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.darkhorse.mvvmframe.ui.OrderActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="123"
+            android:gravity="center"
+            android:onClick="@{() -> activity.login()}"
+            android:layout_height="match_parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
