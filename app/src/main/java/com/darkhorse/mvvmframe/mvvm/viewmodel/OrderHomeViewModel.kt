@@ -6,4 +6,8 @@ import com.darkhorse.mvvmframe.mvvm.model.OrderHomeModel
 
 class OrderHomeViewModel : BaseViewModel<OrderHomeData, OrderHomeModel>() {
     override fun createModel() = OrderHomeModel()
+
+    fun addNum(num:Int){
+        updateData(mModel.addNum(num))
+    }
 }

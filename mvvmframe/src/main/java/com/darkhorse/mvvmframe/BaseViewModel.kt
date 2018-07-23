@@ -8,16 +8,19 @@ import android.databinding.Observable
  * Description:
  * Created by DarkHorse on 2018/7/12.
  */
-abstract class BaseViewModel<E, M : BaseModel> : ViewModel() {
+abstract class BaseViewModel<D, M : BaseModel> : ViewModel() {
     protected val mModel by lazy {
         createModel()
     }
 
-    val mLiveData by lazy {
-        MutableLiveData<E>()
+    internal val mLiveData by lazy {
+        MutableLiveData<D>()
     }
 
     protected abstract fun createModel(): M
 
+    protected fun updateData(data: D) {
+        mLiveData.value = data
+    }
 
 }

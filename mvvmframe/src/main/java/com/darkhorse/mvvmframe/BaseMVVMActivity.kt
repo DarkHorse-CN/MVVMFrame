@@ -15,7 +15,7 @@ import com.darkhorse.baseframe.BaseActivity
  * Description:
  * Created by DarkHorse on 2018/7/12.
  */
-abstract class BaseMVVMActivity<E, M : BaseModel, VM : BaseViewModel<E, M>, B : ViewDataBinding> : BaseActivity() {
+abstract class BaseMVVMActivity<D, M : BaseModel, VM : BaseViewModel<D, M>, B : ViewDataBinding> : BaseActivity() {
 
     protected val mViewModel by lazy {
         ViewModelProviders.of(this).get(createViewModel()::class.java)
@@ -29,13 +29,13 @@ abstract class BaseMVVMActivity<E, M : BaseModel, VM : BaseViewModel<E, M>, B : 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mViewModel.mLiveData.observe(this, Observer<E> {
-            updateData(mBinding, it!!)
+        mViewModel.mLiveData.observe(this, Observer<D> {
+            updateData(it!!)
         })
     }
 
     override fun getContentView(): View = mBinding.root
 
-    protected abstract fun updateData(binding: B, bean: E)
+    protected abstract fun updateData(bean: D)
 
 }

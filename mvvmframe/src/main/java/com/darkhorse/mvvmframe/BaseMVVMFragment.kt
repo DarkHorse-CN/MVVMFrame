@@ -27,7 +27,7 @@ abstract class BaseMVVMFragment<E, M : BaseModel, VM : BaseViewModel<E, M>, B : 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel.mLiveData.observe(this, Observer<E> {
-            updateData(mBinding,it)
+            updateData(it)
         })
     }
 
@@ -35,5 +35,5 @@ abstract class BaseMVVMFragment<E, M : BaseModel, VM : BaseViewModel<E, M>, B : 
         return mBinding.root
     }
 
-    protected abstract fun updateData(binding:B,bean: E?)
+    protected abstract fun updateData(bean: E?)
 }

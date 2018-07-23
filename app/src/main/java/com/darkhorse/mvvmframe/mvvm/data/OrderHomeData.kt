@@ -1,3 +1,5 @@
 package com.darkhorse.mvvmframe.mvvm.data
 
-class OrderHomeData
+data class OrderHomeData(
+      var num:Int
+)
