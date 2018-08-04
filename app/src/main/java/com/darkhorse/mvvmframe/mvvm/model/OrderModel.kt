@@ -1,9 +1,10 @@
 package com.darkhorse.mvvmframe.mvvm.model
 
+import android.arch.lifecycle.MutableLiveData
 import com.darkhorse.mvvmframe.BaseModel
-import com.darkhorse.mvvmframe.mvvm.data.OrderHomeData
+import com.darkhorse.mvvmframe.mvvm.data.OrderData
 
-class OrderHomeModel : BaseModel() {
+class OrderModel : BaseModel() {
 
-    fun addNum(num: Int): OrderHomeData = OrderHomeData(num + 1)
+
 }

@@ -1,5 +1,6 @@
 package com.darkhorse.mvvmframe
 
+import android.content.Intent
 import android.view.View
 import com.darkhorse.baseframe.BaseActivity
 import com.darkhorse.mvvmframe.ui.OrderActivity
@@ -16,7 +17,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        startActivity(OrderActivity::class.java)
+        startActivity(Intent(this, OrderActivity::class.java))
     }
 }
 

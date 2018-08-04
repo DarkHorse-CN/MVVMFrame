@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data class="OrderHomeActivityBinding">
+    <data class="OrderActivityBinding">
 
         <variable
-            name="data"
-            type="com.darkhorse.mvvmframe.mvvm.data.OrderHomeData" />
+            name="mData"
+            type="com.darkhorse.mvvmframe.mvvm.data.OrderData" />
 
         <variable
-            name="activity"
-            type="com.darkhorse.mvvmframe.ui.OrderHomeActivity" />
+            name="mViewModel"
+            type="com.darkhorse.mvvmframe.mvvm.viewmodel.OrderViewModel" />
+
     </data>
 
     <LinearLayout
@@ -21,12 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(data.num)}" />
+            android:text="@{String.valueOf(mData.mNum)}" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> activity.add(data.num)}" />
+            android:onClick="@{() -> mViewModel.addNum(mData.mNum)}" />
 
     </LinearLayout>
 </layout>

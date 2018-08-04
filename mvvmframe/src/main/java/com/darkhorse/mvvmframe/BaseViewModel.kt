@@ -1,8 +1,7 @@
 package com.darkhorse.mvvmframe
 
-import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.databinding.Observable
+import android.databinding.ViewDataBinding
 
 /**
  * Description:
@@ -13,14 +12,11 @@ abstract class BaseViewModel<D, M : BaseModel> : ViewModel() {
         createModel()
     }
 
-    internal val mLiveData by lazy {
-        MutableLiveData<D>()
+    val mData by lazy {
+        createData()
     }
+
+    protected abstract fun createData(): D
 
     protected abstract fun createModel(): M
-
-    protected fun updateData(data: D) {
-        mLiveData.value = data
-    }
-
 }
