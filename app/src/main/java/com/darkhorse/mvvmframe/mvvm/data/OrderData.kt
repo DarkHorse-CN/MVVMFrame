@@ -1,3 +1,7 @@
 package com.darkhorse.mvvmframe.mvvm.data
 
-class OrderData
+import android.arch.lifecycle.MutableLiveData
+
+data class OrderData(
+        var mNum : MutableLiveData<Int> = MutableLiveData()
+)
