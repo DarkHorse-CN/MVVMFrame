@@ -1,6 +1,7 @@
 package com.darkhorse.mvvmframe
 
-import com.darkhorse.baseframe.BaseApplication
+import com.darkhorse.mvvmframe.utils.SPManager
+import com.darkhorse.mvvmframe.base.BaseApplication
 
 /**
  * Description:
@@ -8,6 +9,6 @@ import com.darkhorse.baseframe.BaseApplication
  */
 class MyApplication : BaseApplication() {
     override fun initUtils() {
-
+        SPManager.init(this,"")
     }
 }
