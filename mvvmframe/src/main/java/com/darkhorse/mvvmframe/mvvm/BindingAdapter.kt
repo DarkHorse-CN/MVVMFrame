@@ -1,7 +1,6 @@
 package com.darkhorse.mvvmframe.mvvm
 
 import android.annotation.SuppressLint
-import androidx.databinding.BindingAdapter
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.view.View
@@ -16,6 +15,7 @@ import com.darkhorse.mvvmframe.extension.clipCircle
 import com.darkhorse.mvvmframe.extension.clipRoundRect
 import com.darkhorse.mvvmframe.extension.loadImg
 import com.darkhorse.mvvmframe.extension.setGradualBackground
+import android.databinding.BindingAdapter
 
 /**
  * Description:

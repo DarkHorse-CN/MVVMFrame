@@ -5,8 +5,8 @@ import android.graphics.Outline
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentTransaction
 import android.view.View
 import android.view.ViewOutlineProvider
 import android.widget.ImageView
@@ -63,7 +63,6 @@ fun View.clipCircle(clipCircle: Boolean) {
         }
     }
 }
-
 
 /**
  * 设置背景渐变色

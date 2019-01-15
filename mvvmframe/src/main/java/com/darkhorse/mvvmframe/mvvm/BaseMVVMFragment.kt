@@ -1,12 +1,12 @@
 package com.darkhorse.mvvmframe.mvvm
 
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
 import com.darkhorse.mvvmframe.base.BaseFragment
 import java.lang.reflect.ParameterizedType
 

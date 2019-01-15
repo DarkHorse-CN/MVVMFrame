@@ -1,6 +1,6 @@
 package com.darkhorse.mvvmframe.base
 
-import androidx.multidex.MultiDexApplication
+import android.support.multidex.MultiDexApplication
 import com.darkhorse.mvvmframe.utils.AppManager
 
 /**

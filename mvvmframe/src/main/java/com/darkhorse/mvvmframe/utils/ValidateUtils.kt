@@ -15,7 +15,7 @@ object ValidateUtils {
      * @return
      */
     fun isValidEmail(mail: String): Boolean {
-        val pattern = Pattern.compile("^[A-Za-z0-9][\\w\\._]*[a-zA-Z0-9]+@[A-Za-z0-9-_]+\\.([A-Za-z]{2,4})")
+        val pattern = Pattern.compile("^[A-Za-z0-9][\\w._]*[a-zA-Z0-9]+@[A-Za-z0-9-_]+\\.([A-Za-z]{2,4})")
         val mc = pattern.matcher(mail)
         return mc.matches()
     }

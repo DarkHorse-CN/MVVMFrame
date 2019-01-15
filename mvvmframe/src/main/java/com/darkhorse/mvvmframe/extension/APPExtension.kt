@@ -1,7 +1,8 @@
 package com.darkhorse.mvvmframe.extension
 
-import android.content.Context
+import com.darkhorse.mvvmframe.utils.AppManager
 
-fun Context.getString(stringId: Int): String = this.getString(stringId)
+fun getString(stringId: Int): String = AppManager.curActivity().getString(stringId)
 
-fun Context.getStringArray(arrayId: Int): Array<String> = this.resources.getStringArray(arrayId)
+fun getStringArray(arrayId: Int): Array<String> = AppManager.curActivity().resources.getStringArray(arrayId)
+

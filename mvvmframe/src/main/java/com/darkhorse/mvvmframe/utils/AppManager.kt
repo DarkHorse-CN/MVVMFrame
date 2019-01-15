@@ -2,15 +2,13 @@ package com.darkhorse.mvvmframe.utils
 
 import android.app.Activity
 import android.app.Application
-import android.content.Context
+import android.arch.lifecycle.Lifecycle
+import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.LifecycleOwner
+import android.arch.lifecycle.OnLifecycleEvent
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
-import com.darkhorse.mvvmframe.base.BaseActivity
 import com.darkhorse.mvvmframe.extension.toast
 import com.micropole.baseframe.utils.constant.SystemConstant
 import java.util.*
@@ -22,20 +20,18 @@ import java.util.*
 object AppManager : LifecycleObserver {
     private var exitTime = 0L
 
-    const val SDA =""
-
     var mAppLanguage: String = Locale.getDefault().language
-        get() = SPManager.get(SystemConstant.SYSTEM_LANGUAGE, field)
+        get() = SharePreferencesUtils.get(SystemConstant.SYSTEM_LANGUAGE, field)
         set(value) {
-            SPManager.put(SystemConstant.SYSTEM_LANGUAGE, value)
+            SharePreferencesUtils.put(SystemConstant.SYSTEM_LANGUAGE, value)
         }
 
 
-    private val mActivityStack: Stack<BaseActivity> by lazy {
-        Stack<BaseActivity>()
+    private val mActivityStack: Stack<Activity> by lazy {
+        Stack<Activity>()
     }
 
-    lateinit var mApplication: Application
+    private lateinit var mApplication: Application
 
     fun init(application: Application) {
         mApplication = application
@@ -46,7 +42,7 @@ object AppManager : LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun addActivity(owner: LifecycleOwner) {
-        mActivityStack.push(owner as BaseActivity)
+        mActivityStack.push(owner as Activity)
     }
 
     /**
@@ -54,13 +50,13 @@ object AppManager : LifecycleObserver {
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun removeActivity(owner: LifecycleOwner) {
-        mActivityStack.remove(owner as BaseActivity)
+        mActivityStack.remove(owner as Activity)
     }
 
     /**
      * 关闭指定Activity
      */
-    fun finishActivity(activity: BaseActivity) {
+    fun finishActivity(activity: Activity) {
         activity.finish()
     }
 
@@ -96,18 +92,17 @@ object AppManager : LifecycleObserver {
     /**
      * 获取当前Activity
      */
-    fun currentActivity(): Context = mActivityStack.peek() as Context
+    fun curActivity(): Activity = mActivityStack.peek()
 
-    fun context(): Context = if (currentActivity() == null) {
-        mApplication
-    } else {
-        currentActivity()
-    }
+    /**
+     *  获取Context
+     */
+    fun context() = mApplication
 
     /**
      * 启动Activity
      */
-    fun startActivity(activity: BaseActivity, clz: Class<out Activity>, bundle: Bundle? = null, isFinished: Boolean = false) {
+    fun startActivity(activity: Activity, clz: Class<out Activity>, bundle: Bundle? = null, isFinished: Boolean = false) {
         val intent = Intent(activity, clz)
         if (bundle != null) {
             intent.putExtra("data", bundle)
@@ -121,7 +116,7 @@ object AppManager : LifecycleObserver {
     /**
      * 启动ActivityForResult
      */
-    fun startActivityForResult(activity: BaseActivity, clz: Class<out Activity>, requestCode: Int, bundle: Bundle? = null) {
+    fun startActivityForResult(activity: Activity, clz: Class<out Activity>, requestCode: Int, bundle: Bundle? = null) {
         val intent = Intent(activity, clz)
         if (bundle != null) {
             intent.putExtra("data", bundle)
@@ -132,7 +127,7 @@ object AppManager : LifecycleObserver {
     /**
      * 跳转浏览器
      */
-    fun startBrowser(activity: BaseActivity, url: String) {
+    fun startBrowser(activity: Activity, url: String) {
         val intent = Intent()
                 .setAction("android.intent.action.VIEW")
                 .setData(Uri.parse(url))

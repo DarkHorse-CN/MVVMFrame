@@ -9,7 +9,7 @@ import com.google.gson.reflect.TypeToken
  * Created by DarkHorse on 2018/2/6.
  */
 
-object SPManager {
+object SharePreferencesutils {
 
     /**
      * 保存在手机的文件名称，路径：Path = /data/data/<package name>/shared_prefs

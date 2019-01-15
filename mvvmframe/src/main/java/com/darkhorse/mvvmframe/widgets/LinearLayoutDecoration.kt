@@ -1,8 +1,8 @@
-package com.darkhorse.mvvmframe.widgets
+package com.micropole.baseframe.widgets
 
 import android.graphics.Rect
+import android.support.v7.widget.RecyclerView
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.darkhorse.mvvmframe.utils.DisplayUtils
 
 class LinearLayoutDecoration(private val space: Int) : RecyclerView.ItemDecoration() {

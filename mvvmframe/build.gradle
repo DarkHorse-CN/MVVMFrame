@@ -13,9 +13,6 @@ android {
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -29,22 +26,22 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "androidx.appcompat:appcompat:$support_library_version"
+    implementation "com.android.support:appcompat-v7:$support_library_version"
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test:runner:$runner_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "com.android.support.test:runner:$runner_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    api "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    api "com.android.support:recyclerview-v7:$support_library_version"
 
     //RxLifeCycle
-    implementation "com.trello.rxlifecycle3:rxlifecycle:$rxlifecycle_version"
-    implementation "com.trello.rxlifecycle3:rxlifecycle-components:$rxlifecycle_version"
-    implementation "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle2:rxlifecycle:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle_version"
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:$rxlifecycle_version"
 
     //多个dex处理
-    api "androidx.multidex:multidex:$multidex_version"
+    api "com.android.support:multidex:$multidex_version"
 
     //权限申请
     api "pub.devrel:easypermissions:$easypermissions_version"

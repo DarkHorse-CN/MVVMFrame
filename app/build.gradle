@@ -15,7 +15,6 @@ android {
         targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
     }
 
@@ -26,17 +25,18 @@ android {
         }
     }
 
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "androidx.appcompat:appcompat:$support_library_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "com.android.support:appcompat-v7:$support_library_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test:runner:$runner_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "com.android.support.test:runner:$runner_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.google.android.material:material:$material_version"
     implementation project(':mvvmframe')
 }

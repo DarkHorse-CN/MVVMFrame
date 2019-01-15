@@ -1,6 +1,6 @@
 package com.darkhorse.mvvmframe
 
-import com.darkhorse.mvvmframe.utils.SPManager
+import com.darkhorse.mvvmframe.utils.SharePreferencesUtils
 import com.darkhorse.mvvmframe.base.BaseApplication
 
 /**
@@ -9,6 +9,6 @@ import com.darkhorse.mvvmframe.base.BaseApplication
  */
 class MyApplication : BaseApplication() {
     override fun initUtils() {
-        SPManager.init(this,"")
+        SharePreferencesUtils.init(this,"")
     }
 }

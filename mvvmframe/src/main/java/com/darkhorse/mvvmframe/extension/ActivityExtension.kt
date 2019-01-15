@@ -8,37 +8,32 @@ import com.darkhorse.mvvmframe.base.BaseFragment
 import com.darkhorse.mvvmframe.utils.AppManager
 import android.view.WindowManager
 import android.os.Build
+import android.support.v4.app.Fragment
 import android.view.View
 
 /**
  * Description:
  * Created by DarkHorse on 2018/7/23.
  */
-fun BaseActivity.startActivity(clz: Class<out Activity>, bundle: Bundle? = null, isFinished: Boolean = false) {
+fun Activity.startActivity(clz: Class<out Activity>, bundle: Bundle? = null, isFinished: Boolean = false) {
     AppManager.startActivity(this, clz, bundle, isFinished)
 }
 
-fun BaseActivity.startActivityForResult(clz: Class<out Activity>, requestCode: Int, bundle: Bundle? = null) {
+fun Activity.startActivityForResult(clz: Class<out Activity>, requestCode: Int, bundle: Bundle? = null) {
     AppManager.startActivityForResult(this, clz, requestCode, bundle)
 }
 
-fun BaseActivity.startBrowser(url: String) {
+fun Activity.startBrowser(url: String) {
     AppManager.startBrowser(this, url)
 }
 
-fun BaseFragment.startActivity(clz: Class<out BaseActivity>, bundle: Bundle? = null, isFinished: Boolean = false) {
-    AppManager.startActivity(this.mActivity, clz, bundle, isFinished)
+fun Fragment.startBrowser(url: String) {
+    if (activity != null) {
+        AppManager.startBrowser(activity as Activity, url)
+    }
 }
 
-fun BaseFragment.startActivityForResult(clz: Class<out BaseActivity>, requestCode: Int, bundle: Bundle? = null) {
-    AppManager.startActivityForResult(this.mActivity, clz, requestCode, bundle)
-}
-
-fun BaseFragment.startBrowser(url: String) {
-    AppManager.startBrowser(this.mActivity, url)
-}
-
-fun BaseActivity.setImmersion() {
+fun Activity.setImmersion() {
     if (AppManager.greaterThanSdkVersion(Build.VERSION_CODES.LOLLIPOP)) {
         val window = window
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)

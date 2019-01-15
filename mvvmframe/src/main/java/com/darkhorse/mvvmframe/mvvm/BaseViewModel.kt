@@ -1,6 +1,6 @@
 package com.darkhorse.mvvmframe.mvvm
 
-import androidx.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModel
 
 /**
  * Description:

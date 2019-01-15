@@ -18,7 +18,7 @@ object KeyboardUtils {
     }
 
     fun isHideInput(view: View, ev: MotionEvent): Boolean {
-        if (view != null && view is EditText) {
+        if (view is EditText) {
             val l = intArrayOf(0, 0)
             view.getLocationInWindow(l)
             val left = l[0]

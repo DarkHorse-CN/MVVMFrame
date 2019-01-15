@@ -1,10 +1,10 @@
 package com.darkhorse.mvvmframe.mvvm
 
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProviders
 import com.darkhorse.mvvmframe.base.BaseActivity
 
 /**

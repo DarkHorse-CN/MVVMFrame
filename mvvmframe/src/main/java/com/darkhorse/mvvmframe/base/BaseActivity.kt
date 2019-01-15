@@ -3,13 +3,13 @@ package com.darkhorse.mvvmframe.base
 import android.Manifest
 import android.content.Context
 import android.os.*
+import android.support.v7.app.AppCompatActivity
 import com.darkhorse.mvvmframe.permission.PermissionBean
 import com.darkhorse.mvvmframe.permission.PermissionCode
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import com.darkhorse.mvvmframe.utils.SPManager
+import com.darkhorse.mvvmframe.utils.SharePreferencesUtils
 import com.darkhorse.mvvmframe.utils.AppManager
 import com.darkhorse.mvvmframe.interfaces.IBaseActivity
 import com.micropole.baseframe.utils.constant.SystemConstant
@@ -31,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val language = SPManager.get(SystemConstant.SYSTEM_LANGUAGE, "")
+        val language = SharePreferencesUtils.get(SystemConstant.SYSTEM_LANGUAGE, "")
         val locale: Locale
         if (language.isEmpty()) {
             locale = Locale.getDefault()
